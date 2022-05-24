@@ -1,0 +1,35 @@
+---
+title: "animated_data"
+output: html_document
+date: '2022-04-03'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r distribution_ratinghistogram}
+options(scipen=5)
+ggplot(histogramdata,aes(score)) + geom_histogram(col = "black",fill = "blue")
+```
+```{r distributionratings_scatterplot}
+gg <- ggplot(all_apps_reviews_nodupes, aes(x=score, y=charCount)) + 
+  geom_point(aes(col=score, size=charCount)) + 
+  geom_smooth(method="loess", se=F) + 
+  xlim(c(0, 5)) + 
+  ylim(c(0, 600)) + 
+  labs(subtitle="Ratings Vs Word Count", 
+       y="# of Words", 
+       x="Ratings", 
+       title="Scatterplot", 
+       caption = "Source: all_apps_reviews_nodups.csv")
+plot(gg)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
