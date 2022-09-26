@@ -1,6 +1,9 @@
 <sub>Python Version 3.9.2 64-Bit</sub>
 
-# Setup
+# How to Use Google Play API Scraper for Python
+
+
+## Setup
 Packages:
 
 **PyMongo** is the database where data is stored as objects and can be exported into cvs or json files easily
