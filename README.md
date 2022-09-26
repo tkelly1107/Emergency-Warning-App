@@ -20,6 +20,8 @@ Packages:
 
 <sub>[random and time is part of Python base package so there should be no need to install these]</sub>
 
+The Python file for this code can be found in the code folder as "googlereviewautoscraper.py"
+
 
 ## Install packages
 **PyMongo, Pandas, google_play_scraper, pprint, datetime, tzlocal, openpyxl**
