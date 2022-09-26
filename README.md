@@ -83,6 +83,7 @@ app_ids = list(app_df['AppID'])
 ```
 # Building the scraper
 We create our first for loop to iterate through app IDs to gather the apps info
+
 Print the data to see what it looks like
 ```
 app_info = []
