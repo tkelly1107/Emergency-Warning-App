@@ -15,12 +15,12 @@ app_proj_db = client['app_proj_db']
 info_collection = app_proj_db['info_collection']
 review_collection = app_proj_db['review_collection']
 #Before reading in csv, make sure to separate app id from google url with r script in folder
-app_df = pd.read_excel(r'C:\Users\recon\OneDrive - Nova Southeastern University\Emergency Communication data\Emergency Com Data.xlsx')
+app_df = pd.read_excel(r'C:\PATH\Emergency Com Data.xlsx')
 app_df.head()
 
 app_names = list(app_df['App_Name'])
 app_ids = list(app_df['AppID'])
-#error occurrs here. investigate.
+
 app_info = []
 for i in app_ids:
     info = app(i)
