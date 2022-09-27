@@ -10,7 +10,7 @@ import time
 import openpyxl
 
 #Connect to MongoDB google cluster.
-client = MongoClient("mongodb+srv://admin:MeltemINFP2020@googlecluster.z2zrj.mongodb.net")
+client = MongoClient("mongodb+srv://admin:'Password'@'ClusterName'.z2zrj.mongodb.net")
 app_proj_db = client['app_proj_db']
 info_collection = app_proj_db['info_collection']
 review_collection = app_proj_db['review_collection']
