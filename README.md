@@ -267,5 +267,5 @@ time.sleep(random.randint(1,5))
 <sub>Troubleshooting: 
 If the scraper errors off while beginning to scrape an app, the error is usually that there are no reviews in that app for it to scrape. Make sure all the apps you have listed actually have reviews in them to be scraped.</sub>
 
-
+______________________________________________________________________________________________________________________________
 <sub>This code was adapted from https://python.plainenglish.io/scraping-storing-google-play-app-reviews-with-python-5640c933c476</sub>
