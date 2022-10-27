@@ -1,21 +1,17 @@
 import pandas as pd
 from google_play_scraper import app, Sort, reviews
 from pprint import pprint
-import pymongo
-from pymongo import MongoClient
 import datetime as dt
 from tzlocal import get_localzone
 import random
 import time
 import openpyxl
 
-#Connect to MongoDB google cluster.
-client = MongoClient("mongodb+srv://admin:'Password'@'ClusterName'.z2zrj.mongodb.net")
-app_proj_db = client['app_proj_db']
-info_collection = app_proj_db['info_collection']
-review_collection = app_proj_db['review_collection']
+#Create Pandas Dataframe.
+info_collection = pd.DataFrame()
+review_collection = pd.DataFrame()
 #Before reading in csv, make sure to separate app id from google url with r script in folder
-app_df = pd.read_excel(r'C:\PATH\Emergency Com Data.xlsx')
+app_df = pd.read_excel(r'C:\PATH.xlsx')
 app_df.head()
 
 app_names = list(app_df['App_Name'])
@@ -29,9 +25,8 @@ for i in app_ids:
 
 pprint(app_info[0])
 
-info_collection.insert_many(app_info)
-info_df = pd.DataFrame(list(info_collection.find({})))
-info_df.head()
+info_collection = pd.DataFrame(app_info)
+info_collection.head()
 
 
 for app_name, app_id in zip(app_names, app_ids):
@@ -136,7 +131,7 @@ for app_name, app_id in zip(app_names, app_ids):
             print(f'Batch {batch_num} completed.')
             
             
-            review_collection.insert_many(app_reviews)
+            review_collection = pd.DataFrame(app_reviews)
             
             
             store_time = dt.datetime.now(tz=get_localzone())
@@ -159,7 +154,7 @@ for app_name, app_id in zip(app_names, app_ids):
     
     
     
-    review_collection.insert_many(app_reviews)
+    review_collection = pd.DataFrame(app_reviews)
     
     
     end = dt.datetime.now(tz=get_localzone())
@@ -177,4 +172,7 @@ for app_name, app_id in zip(app_names, app_ids):
     
     time.sleep(random.randint(1,5))
 
+review_collection.head()
 
+review_collection.to_csv(r'C:\PATH.csv')
+info_collection.to_csv(r'C:\PATH.csv')
