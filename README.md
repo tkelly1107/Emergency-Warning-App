@@ -6,8 +6,6 @@
 ## Setup
 Packages:
 
-**PyMongo** is the database where data is stored as objects and can be exported into cvs or json files easily
-
 **Pandas** is data analysis tool for data structuring and manipulation
 
 **Google_play_scraper** is an API designed for Python to easily be used for extracting or mining data from Google Play Store
@@ -27,40 +25,28 @@ The Python file for this code can be found in the code folder as "googlereviewau
 
 
 ## Install packages
-**PyMongo, Pandas, google_play_scraper, pprint, datetime, tzlocal, openpyxl**
+**Pandas, google_play_scraper, pprint, datetime, tzlocal, openpyxl**
 
 ```
 import pandas as pd
 from google_play_scraper import app, Sort, reviews
 from pprint import pprint
-import pymongo
-from pymongo import MongoClient
 import datetime as dt
 from tzlocal import get_localzone
 import random
 import time
 import openpyxl
 ```
-## Create MongoDB account
-Create and setup a free MongoDB account:
-https://www.mongodb.com/
 
-### Connect your Mongo database. 
-If using a cluster, you will need the SRV with your account password below
+### Prepare your Pandas Dataframe. 
+
+review_collection will contain review data
+info_collection will contain metadata
 ```
-client = MongoClient("mongodb+srv://admin:'InsertYourPasswordHere'@'nameofyourcluster'cluster.z2zrj.mongodb.net")
+info_collection = pd.DataFrame()
+review_collection = pd.DataFrame()
 ```
 
-Otherwise you can connect as a local host, just to your system with
-```
-client = MongoClient(host='localhost', port=27017)
-```
-We will name the project 'app_proj_db' and the two databases within it 'info and review collection'. Review collection will contain most information you want, info collection will contain meta data
-```
-app_proj_db = client['app_proj_db']
-info_collection = app_proj_db['info_collection']
-review_collection = app_proj_db['review_collection']
-```
 
 Before the next step, make sure that your excel file with the list of google applications is ready by ensuring it is only reading the app url.
 ## Get your App IDs
@@ -73,10 +59,16 @@ To extract the app ID from that, you would have: "gov.fema.mobile.android"]
 
 Read in the list of google apps you want the scraper to pull from.
 ```
-app_df = pd.read_excel(r'C:\Users\recon\Documents\test.xlsx')
+app_df = pd.read_excel(r'C:\PATH.xlsx')
 #To see a view of the data in the excel file
 app_df.head()
 ```
+Say you have 15 apps in your list and you want to view all of them, just take the number of apps you have and insert that number here:
+```
+app_df.head(15)
+```
+It will print that number of rows so you can review your app list.
+
 Great, now that you've had a chance to double-check your app IDs, you can move to the next step.
 
 Here we assign names to two lists in our dataframe for app names and IDs
@@ -98,13 +90,12 @@ for i in app_ids:
 pprint(app_info[0])
 ```
 
-We use insert many to insert the data we collected into our info_collection database we made earlier
+We insert the info data into the info_collection dataframe, then print to see the data
 ```
-info_collection.insert_many(app_info)
-info_df = pd.DataFrame(list(info_collection.find({})))
-info_df.head()
+info_collection = pd.DataFrame(app_info)
+info_collection.head()
 ```
-Now we will do the same thing but for the reviews and store them in the review collection database
+Now we will do the same thing but for the reviews and store them in the review collection dataframe
 
 ### Loop through apps to get reviews
 ```
@@ -211,8 +202,8 @@ for batch in range(4999):
             #Print number of batches completed
             print(f'Batch {batch_num} completed.')
             
-            #Insert reviews into collection
-            review_collection.insert_many(app_reviews)
+            #Insert reviews into pandas dataframe
+            review_collection = pd.DataFrame(app_reviews)
             
             #Print the number of reviews inserted
             store_time = dt.datetime.now(tz=get_localzone())
@@ -235,10 +226,10 @@ print(f'Done scraping {app_name}.')
 print(f'Scraped a total of {len(set(pre_review_ids))} unique reviews.\n')
 ```
     
-Insert remaining reviews into collection
+Insert remaining reviews into dataframe
     
 ```
-review_collection.insert_many(app_reviews)
+review_collection = pd.DataFrame(app_reviews)
 ```
 End time
     
@@ -261,8 +252,21 @@ Wait 1 to 5 seconds to start scraping next app
 ```
 time.sleep(random.randint(1,5))
 ```
-
-
+After scraper has finished running (which may take hours depending on how much data and your computers processing speed), let's take a look at the data we've collected into our dataframes:
+```
+review_collection.head()
+```
+This should return a list of review data from our apps with the column labeled 'content' containing our review text. 
+Now we can import both our review collection and info collection to either a CSV or json file. 
+```
+review_collection.to_csv(r'C:\PATH.csv')
+info_collection.to_csv(r'C:\PATH.csv')
+```
+or
+```
+review_collection.to_json(r'C:\PATH.json')
+info_collection.to_json(r'C:\PATH.json')
+```
 
 <sub>Troubleshooting: 
 If the scraper errors off while beginning to scrape an app, the error is usually that there are no reviews in that app for it to scrape. Make sure all the apps you have listed actually have reviews in them to be scraped.</sub>
