@@ -25,7 +25,18 @@ The Python file for this code can be found in the code folder as "googlereviewau
 
 
 ## Install packages
-**Pandas, google_play_scraper, pprint, datetime, tzlocal, openpyxl**
+Once you've installed Python, you're going to need to install the packages we'll be using. 
+You'll need to open up the Command Prompt and enter:
+```
+pip install google_play_store
+pip install pandas
+pip install openpyxl
+pip install tzlocal
+pip install datetime
+```
+**Pandas, google_play_scraper, datetime, tzlocal, openpyxl**
+
+Once they've been installed, you can import them into your Python shell.
 
 ```
 import pandas as pd
