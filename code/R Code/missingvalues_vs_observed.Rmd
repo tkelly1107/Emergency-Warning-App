@@ -1,0 +1,13 @@
+---
+title: "Data validation"
+output: html_notebook
+---
+
+
+```{r}
+library(Amelia)
+textinprocess <- read.csv("C:/Users/recon/OneDrive - Nova Southeastern University/Desktop/Emergency Communication data/Data/textinprocess.csv", header=T,na.strings=c(""), encoding="UTF-8")
+map <- missmap(textinprocess, main = "Missing values vs observed")
+```
+
+
