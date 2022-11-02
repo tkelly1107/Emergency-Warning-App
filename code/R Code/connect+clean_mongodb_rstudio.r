@@ -5,7 +5,7 @@ output: html_notebook
 #Then it prints a csv file to shared folder of check text error log
 ---
 library(mongolite)
-connection_string = 'mongodb+srv://admin:MeltemINFP2020@googlecluster.z2zrj.mongodb.net/app_proj_db'
+connection_string = 'mongodb+srv://admin:@googlecluster.z2zrj.mongodb.net/app_proj_db'
 review_collection = mongo(collection="review_collection", db="app_proj_db", url=connection_string)
 review_collection$iterate()$one()
 alldata <- review_collection$find('{}')
