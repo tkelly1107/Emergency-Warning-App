@@ -1,4 +1,4 @@
-# Effective Use and Design Emergency Warning Mobile Apps 
+# Effective Use Design Emergency Warning Mobile Apps 
 &nbsp;
 &nbsp;
 &nbsp;
