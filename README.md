@@ -1,4 +1,4 @@
-# Effective Use Design of Emergency Warning Mobile Apps 
+# Effective Use Design of Emergency Warning Mobile Apps Research Project
 &nbsp;
 &nbsp;
 &nbsp;
