@@ -8,9 +8,9 @@
 - **data:** contains data collected from google scraper
 - **literature:** contains papers and research manuscripts pertaining to emergency warning mobile app research project
 
-&nbsp;
-### This github repository contains several scripts and guides for scraping google application reviews with the google play scraper API package for Python. It also contains scripts for data cleaning, manipulations, visualizations and exploratory analysis in R. 
-### These scripts were originally created for an emergency warning mobile applications research project with Dr. Bonaretti at Nova Southeastern University, between March and December 2022.     
+&nbsp; 
+### This github repository was originally created by Timoteo Kelly for an emergency warning mobile applications research project with Dr. Bonaretti at Nova Southeastern University, between March and May 2023. 
+### It contains several scripts and guides for scraping and storing google application reviews in Python, processing, analysis and data viz in R, and text classification with MonkeyLearn.   
 &nbsp; 
 
 
