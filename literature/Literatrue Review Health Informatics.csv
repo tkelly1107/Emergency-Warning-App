@@ -1,0 +1,3 @@
+﻿Title,Author,Journal/Ranking,method,algorythmUsed,typeOfData,domainData,DOI
+Detecting reports of unsafe foods in consumer product reviews,"Adyasha Maharana, Kunlin Cai, Joseph Hellerstein, Yulin Hswen, Michael Munsell, Valentina Staneva, Miki Verma, Cynthia Vint, Derry Wijaya, Elaine O Nsoesie",6296/SJR .747,Text matching in relational database; Machine Learning,BERT,User generated,Amazon food product reviews; FDA enforcement reports 2012-2017,https://doi.org/10.1093/jamiaopen/ooz030
+Improving the design of California’s prescription drug monitoring program,"Mustafa I Hussain, Ariana M Nelson, Gregory Polston, Kai Zheng",6296/SJR .747,Qualitative analysis of user feedback,N/A,User generated feedback,Drug monitoring,https://doi.org/10.1093/jamiaopen/ooy064
