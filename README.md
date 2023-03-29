@@ -1,4 +1,4 @@
-# Effective Use Design of Emergency Warning Mobile Apps Research Project
+# Effective Use Mobile Apps Research Project for Public Health
 &nbsp;
 &nbsp;
 &nbsp;
