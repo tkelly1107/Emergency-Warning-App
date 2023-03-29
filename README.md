@@ -9,7 +9,7 @@
 - **literature:** contains papers and research manuscripts pertaining to emergency warning mobile app research project
 
 &nbsp; 
-### This github repository was originally created by Timoteo Kelly for an emergency warning mobile applications research project with Dr. Bonaretti at Nova Southeastern University, between January 2022 and May 2023. 
+### This github repository was originally created by Timoteo Kelly for an emergency weather alert and mHealth applications research project with Dr. Bonaretti at Nova Southeastern University, between January 2022 and May 2023. 
 ### It contains several scripts and guides for scraping and storing google application reviews in Python, processing, analysis and data viz in R, and text classification with MonkeyLearn.   
 &nbsp; 
 
