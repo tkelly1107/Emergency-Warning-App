@@ -1,4 +1,4 @@
-# Effective Use Mobile Apps Research Project for Public Health
+# Effective Use Mobile Apps for Public Health Research Project
 &nbsp;
 &nbsp;
 &nbsp;
