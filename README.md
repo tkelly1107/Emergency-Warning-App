@@ -6,7 +6,7 @@
 ### Folder Directory
 - **code:** Python Code subfolder contains py and ipynb scripts. R Code subfolder contains r and rmd scripts.
 - **data:** contains data collected from google scraper
-- **literature:** contains papers and research manuscripts pertaining to emergency warning mobile app research project
+- **literature:** contains papers and research manuscripts pertaining to the project
 
 &nbsp; 
 ### This github repository was originally created by Timoteo Kelly for an emergency weather alert and mHealth applications research project with Dr. Bonaretti at Nova Southeastern University, between January 2022 and May 2023. 
